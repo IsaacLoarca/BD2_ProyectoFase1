@@ -1,0 +1,27 @@
+# Fase 2 — ejecutar desde esta carpeta: docker compose up -d
+# Usa nombre de proyecto, contenedor, volumen y puerto propios para convivir con Fase 1.
+name: proyectofase2
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: olimpiadas-postgres-f2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - olimpiadas_f2_pgdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+      - ./staging:/staging:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  olimpiadas_f2_pgdata:

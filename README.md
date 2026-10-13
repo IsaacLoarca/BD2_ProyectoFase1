@@ -1,96 +1,37 @@
-# Base de Datos Unificada de Olimpiadas — Proyecto Fase 1
+# Base de Datos Unificada de Olimpiadas
 
 **Universidad de San Carlos de Guatemala** · Facultad de Ingeniería · Escuela de Ciencias y Sistemas
 **Sistemas de Bases de Datos 2** — 2do. Semestre 2026
 
-Unificación de cuatro fuentes públicas de datos olímpicos en una sola base de datos relacional
-(PostgreSQL), con su modelo entidad-relación, scripts de carga y stored procedures de consulta.
+Repositorio único con las dos fases del proyecto. Cada fase es autosuficiente: tiene su propio
+`docker-compose.yml`, `.env`, `.gitignore`, `README.md`, `db/`, `docs/`, `scripts/` y `staging/`.
 
----
+| Carpeta | Contenido | Puerto Postgres | Contenedor |
+|---------|-----------|-----------------|------------|
+| [`Proyecto Fase 1/`](Proyecto%20Fase%201/) | Modelo ER, unificación de fuentes, carga y stored procedures. **Congelada**: no se modifica. | 5434 | `olimpiadas-postgres` |
+| [`Proyecto Fase 2/`](Proyecto%20Fase%202/) | Parte de una copia de Fase 1 y es donde continúa el desarrollo. Incluye el enunciado (PDF). | 5435 | `olimpiadas-postgres-f2` |
 
-## Estado de las entregas
+> Desde Fase 2 en adelante **solo se modifica `Proyecto Fase 2/`**.
 
-| Inciso | Entregable | Fecha | Estado |
-|--------|-----------|-------|--------|
-| **(a)** | Modelo de datos y diagrama entidad-relación | 2-SEP-2026 | ✅ Completo |
-| **(b)** | Extracción de fuentes y carga a base relacional | 19-SEP-2026 | ⬜ Pendiente |
-| **(c)** | Scripts SQL: tablas, llaves, índices, carga | 19-SEP-2026 | ⬜ Pendiente |
-| **(d)** | Stored procedure de consulta por atleta | 19-SEP-2026 | ⬜ Pendiente |
-| **(e)** | Stored procedure de consulta por país | 19-SEP-2026 | ⬜ Pendiente |
+## Uso
 
----
-
-## Estructura del repositorio
-
-```
-.
-├── diagramas/
-│   └── modelo-er-olimpiadas.drawio   Diagrama ER (draw.io, XML plano editable)
-├── docs/
-│   ├── modelo-de-datos.md            Diccionario de datos, cardinalidades, normalización
-│   ├── HANDOFF-decisiones.md         Bitácora de decisiones de diseño (D-000..D-014)
-│   └── Enunciado proyecto 1.pdf      Enunciado original del curso
-├── fuentes/
-│   ├── kaggle-120-years-olympic-history.zip
-│   ├── kaggle-summer-olympics-medals-1896-2024.zip
-│   └── datacamp-datalab-r-olympics.csv
-├── scripts/
-│   └── preparar-fuentes.sh           Reconstruye data/raw/ y sources/
-├── data/raw/                         (no versionado — generado por el script)
-└── sources/                          (no versionado — generado por el script)
-```
-
-> `data/raw/` y `sources/` no se versionan: son 180 MB derivados de los `.zip` de `fuentes/` y de un
-> repositorio público. `scripts/preparar-fuentes.sh` los reconstruye de forma determinista.
-
----
-
-## Preparar el entorno
+Cada comando se ejecuta desde dentro de la carpeta de la fase:
 
 ```bash
-git clone https://github.com/jRodas497/BD2_ProyectoFase1.git
-cd BD2_ProyectoFase1
-./scripts/preparar-fuentes.sh
+cd "Proyecto Fase 2"            # o "Proyecto Fase 1"
+cp .env.example .env            # una sola vez; ajustar la contraseña
+docker compose up -d
 ```
 
-El script descomprime las fuentes de Kaggle, **normaliza los saltos de línea CR de
-`noc_regions.csv`** (ver decisión D-001), clona el repositorio de Olympedia y verifica el conteo de
-filas de cada archivo.
+Las fases usan nombre de proyecto (`proyectofase1` / `proyectofase2`), contenedor, volumen y puerto
+distintos, así que pueden correr a la vez sin chocar.
 
----
+## Datos derivados (no versionados)
 
-## Fuentes de datos
+`data/raw/` y `sources/` no se suben al repo. En Fase 1 existen; en Fase 2 se reconstruyen con
+`./scripts/preparar-fuentes.sh` si se necesitan.
 
-| # | Fuente | Volumen | Cobertura | Aporte único |
-|---|--------|---------|-----------|--------------|
-| **F1** | [Olympedia / KeithGalli](https://github.com/KeithGalli/Olympics-Dataset) | 145,500 atletas · 308,408 resultados | 1896–2022, Verano e Invierno | Fecha de nacimiento y defunción, lugar de nacimiento, **puesto además de medalla** |
-| **F2** | [Kaggle — 120 years of Olympic history](https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results) | 271,116 filas | 1896–2016, Verano e Invierno | Ciudad sede por edición, nombres de equipo, catálogo NOC→región |
-| **F3** | [Kaggle — Summer Olympics Medals 1896-2024](https://www.kaggle.com/datasets/stefanydeoliveira/summer-olympics-medals-1896-2024) | 252,565 filas | 1896–2024, solo Verano | **Tokio 2020 y París 2024** |
-| **F4** | [DataCamp DataLab — r-olympics](https://www.datacamp.com/datalab/datasets/r-olympics) | 99 filas | muestra | Ninguno — es un subconjunto literal de F2 |
-| **F5** | [olympics.com](https://www.olympics.com/) | — | — | Referencia de verificación de calidad |
+## Notas
 
----
-
-## El modelo en una frase
-
-**15 entidades, 16 relaciones.** Tres decisiones lo sostienen:
-
-1. **`PARTICIPACION` tiene grano de *entrada al evento*, no de atleta.** El oro de baloncesto de
-   EE.UU. 1992 es **una** fila con medalla y **doce** en `PARTICIPACION_ATLETA`. Cargar los CSV tal
-   como vienen infla el medallero por país en miles de medallas.
-2. **`NOC` está separado de `PAIS`.** `URS`, `GDR`, `TCH` y `YUG` son comités disueltos con medallas
-   en el histórico. Sin la separación no se puede consultar *Alemania* como `GER + FRG + GDR + SAA`.
-3. **Jerarquía `DEPORTE → DISCIPLINA → EVENTO`.** Reconcilia el `Sport` de Kaggle (66 valores) con el
-   `Discipline` de Olympedia (94) sin forzar una fuente a la otra.
-
-El detalle completo está en [`docs/modelo-de-datos.md`](docs/modelo-de-datos.md); el porqué de cada
-decisión, con sus alternativas descartadas, en [`docs/HANDOFF-decisiones.md`](docs/HANDOFF-decisiones.md).
-
----
-
-## Ver el diagrama
-
-`diagramas/modelo-er-olimpiadas.drawio` es XML de draw.io **sin comprimir**, editable con:
-
-- La extensión [Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) de VS Code
-- [app.diagrams.net](https://app.diagrams.net/) (Archivo → Abrir desde → Dispositivo)
+- [`CONTEXTO.md`](CONTEXTO.md): nota de trabajo con el estado de Fase 1 (no es un entregable).
+- Detalle de cada fase: README dentro de su carpeta.

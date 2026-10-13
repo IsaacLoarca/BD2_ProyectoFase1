@@ -1,3 +1,6 @@
+# Fase 1 — ejecutar desde esta carpeta: docker compose up -d
+name: proyectofase1
+
 services:
   db:
     image: postgres:16-alpine

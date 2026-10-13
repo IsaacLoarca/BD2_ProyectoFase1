@@ -251,6 +251,10 @@ CALL sp_info_atleta('Usain Bolt', 'Athletics', 'JAM', 2016);   -- filtrado por d
 CALL sp_info_pais('France');
 CALL sp_info_pais('Guatemala', 2024);                          -- filtrado por año
 CALL sp_info_pais('France', 2024, 'Verano');                   -- filtrado por año y temporada
+
+-- Extra: medallistas de un país (p_pais, p_deporte, p_anio, p_medalla 'Oro'/'Plata'/'Bronce')
+CALL sp_medallistas_pais('Guatemala');
+CALL sp_medallistas_pais('USA', 'Aquatics', 2016, 'Oro');
 ```
 
 `p_nombre`/`p_deporte`/`p_pais` hacen `ILIKE '%...%'` (parcial, sin distinguir mayúsculas) y pueden
