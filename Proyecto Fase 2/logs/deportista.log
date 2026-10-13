@@ -1,0 +1,142 @@
+[2026-10-12 19:35:43] ######## CICLO deportista ########
+[2026-10-12 19:35:56] CARGA deportista/01_atenas_2004: inicio
+  pais: COPY 205
+  noc: COPY 236
+  ciudad: COPY 42
+  edicion: COPY 1
+  sede: COPY 1
+  deporte: COPY 1
+  disciplina: COPY 1
+  evento: COPY 1
+  evento_edicion: COPY 1
+  atleta: COPY 1
+  participacion: COPY 1
+  participacion_atleta: COPY 1
+  atleta_fuente: COPY 12
+[2026-10-12 19:35:57] CARGA deportista/01_atenas_2004: fin en 1.656s
+[2026-10-12 19:36:01] BACKUP FULL deportista -> /backups/deportista/full
+pg_basebackup: initiating base backup, waiting for checkpoint to complete
+pg_basebackup: checkpoint completed
+pg_basebackup: write-ahead log start point: 0/2000028 on timeline 1
+pg_basebackup: starting background WAL receiver
+pg_basebackup: created temporary replication slot "pg_basebackup_413"
+pg_basebackup: write-ahead log end point: 0/2000120
+pg_basebackup: waiting for background process to finish streaming ...
+pg_basebackup: syncing data to disk ...
+pg_basebackup: renaming backup_manifest.tmp to backup_manifest
+pg_basebackup: base backup completed
+[2026-10-12 19:36:03] BACKUP FULL deportista: 2.242s, 47756 KB
+[2026-10-12 19:36:03] CARGA deportista/02_pekin_2008: inicio
+  pais: COPY 0
+  noc: COPY 0
+  ciudad: COPY 0
+  edicion: COPY 1
+  sede: COPY 1
+  deporte: COPY 0
+  disciplina: COPY 0
+  evento: COPY 2
+  evento_edicion: COPY 3
+  atleta: COPY 0
+  participacion: COPY 3
+  participacion_atleta: COPY 3
+  atleta_fuente: COPY 0
+[2026-10-12 19:36:05] CARGA deportista/02_pekin_2008: fin en 1.442s
+[2026-10-12 19:36:08] BACKUP INCREMENTAL deportista #1 -> /backups/deportista/inc1 (base: /backups/deportista/full)
+pg_basebackup: initiating base backup, waiting for checkpoint to complete
+pg_basebackup: checkpoint completed
+pg_basebackup: write-ahead log start point: 0/4000028 on timeline 1
+pg_basebackup: starting background WAL receiver
+pg_basebackup: created temporary replication slot "pg_basebackup_756"
+pg_basebackup: write-ahead log end point: 0/4000120
+pg_basebackup: waiting for background process to finish streaming ...
+pg_basebackup: syncing data to disk ...
+pg_basebackup: renaming backup_manifest.tmp to backup_manifest
+pg_basebackup: base backup completed
+[2026-10-12 19:36:10] BACKUP INCREMENTAL deportista #1: 2.117s, 24520 KB
+[2026-10-12 19:36:10] CARGA deportista/03_londres_2012: inicio
+  pais: COPY 0
+  noc: COPY 0
+  ciudad: COPY 0
+  edicion: COPY 1
+  sede: COPY 1
+  deporte: COPY 0
+  disciplina: COPY 0
+  evento: COPY 0
+  evento_edicion: COPY 3
+  atleta: COPY 0
+  participacion: COPY 3
+  participacion_atleta: COPY 3
+  atleta_fuente: COPY 0
+[2026-10-12 19:36:12] CARGA deportista/03_londres_2012: fin en 1.468s
+[2026-10-12 19:36:15] BACKUP INCREMENTAL deportista #2 -> /backups/deportista/inc2 (base: /backups/deportista/inc1)
+pg_basebackup: initiating base backup, waiting for checkpoint to complete
+pg_basebackup: checkpoint completed
+pg_basebackup: write-ahead log start point: 0/6000028 on timeline 1
+pg_basebackup: starting background WAL receiver
+pg_basebackup: created temporary replication slot "pg_basebackup_1102"
+pg_basebackup: write-ahead log end point: 0/6000120
+pg_basebackup: waiting for background process to finish streaming ...
+pg_basebackup: syncing data to disk ...
+pg_basebackup: renaming backup_manifest.tmp to backup_manifest
+pg_basebackup: base backup completed
+[2026-10-12 19:36:17] BACKUP INCREMENTAL deportista #2: 2.050s, 24424 KB
+[2026-10-12 19:36:17] CARGA deportista/04_rio_2016: inicio
+  pais: COPY 0
+  noc: COPY 0
+  ciudad: COPY 0
+  edicion: COPY 1
+  sede: COPY 1
+  deporte: COPY 0
+  disciplina: COPY 0
+  evento: COPY 0
+  evento_edicion: COPY 3
+  atleta: COPY 0
+  participacion: COPY 3
+  participacion_atleta: COPY 3
+  atleta_fuente: COPY 0
+[2026-10-12 19:36:19] CARGA deportista/04_rio_2016: fin en 1.505s
+[2026-10-12 19:36:22] BACKUP INCREMENTAL deportista #3 -> /backups/deportista/inc3 (base: /backups/deportista/inc2)
+pg_basebackup: initiating base backup, waiting for checkpoint to complete
+pg_basebackup: checkpoint completed
+pg_basebackup: write-ahead log start point: 0/8000028 on timeline 1
+pg_basebackup: starting background WAL receiver
+pg_basebackup: created temporary replication slot "pg_basebackup_1451"
+pg_basebackup: write-ahead log end point: 0/8000120
+pg_basebackup: waiting for background process to finish streaming ...
+pg_basebackup: syncing data to disk ...
+pg_basebackup: renaming backup_manifest.tmp to backup_manifest
+pg_basebackup: base backup completed
+[2026-10-12 19:36:24] BACKUP INCREMENTAL deportista #3: 2.033s, 24424 KB
+[2026-10-12 19:36:24] RESTORE deportista [full]: inicio
+ Volume proyectofase2_olimpiadas_f2_pgdata Creating 
+ Volume proyectofase2_olimpiadas_f2_pgdata Creating 
+ Volume proyectofase2_olimpiadas_f2_pgdata Created 
+ Volume proyectofase2_olimpiadas_f2_pgdata Created 
+ Container proyectofase2-db-run-d93d1cd0aa29 Creating 
+ Container proyectofase2-db-run-d93d1cd0aa29 Created 
+[2026-10-12 19:36:31] RESTORE deportista [full]: archivos 0.742s + recuperación 5.846s = total 6.588s
+[2026-10-12 19:36:35] RESTORE deportista [full+inc1]: inicio
+ Volume proyectofase2_olimpiadas_f2_pgdata Creating 
+ Volume proyectofase2_olimpiadas_f2_pgdata Creating 
+ Volume proyectofase2_olimpiadas_f2_pgdata Created 
+ Volume proyectofase2_olimpiadas_f2_pgdata Created 
+ Container proyectofase2-db-run-891b6fe3306e Creating 
+ Container proyectofase2-db-run-891b6fe3306e Created 
+[2026-10-12 19:36:43] RESTORE deportista [full+inc1]: archivos 2.504s + recuperación 5.839s = total 8.343s
+[2026-10-12 19:36:46] RESTORE deportista [full+inc1+inc2]: inicio
+ Volume proyectofase2_olimpiadas_f2_pgdata Creating 
+ Volume proyectofase2_olimpiadas_f2_pgdata Creating 
+ Volume proyectofase2_olimpiadas_f2_pgdata Created 
+ Volume proyectofase2_olimpiadas_f2_pgdata Created 
+ Container proyectofase2-db-run-6a9b80fe57d1 Creating 
+ Container proyectofase2-db-run-6a9b80fe57d1 Created 
+[2026-10-12 19:36:55] RESTORE deportista [full+inc1+inc2]: archivos 2.549s + recuperación 5.843s = total 8.392s
+[2026-10-12 19:36:58] RESTORE deportista [full+inc1+inc2+inc3]: inicio
+ Volume proyectofase2_olimpiadas_f2_pgdata Creating 
+ Volume proyectofase2_olimpiadas_f2_pgdata Creating 
+ Volume proyectofase2_olimpiadas_f2_pgdata Created 
+ Volume proyectofase2_olimpiadas_f2_pgdata Created 
+ Container proyectofase2-db-run-269d2f6e4827 Creating 
+ Container proyectofase2-db-run-269d2f6e4827 Created 
+[2026-10-12 19:37:07] RESTORE deportista [full+inc1+inc2+inc3]: archivos 2.544s + recuperación 5.867s = total 8.411s
+[2026-10-12 19:37:10] ######## CICLO deportista COMPLETO ########

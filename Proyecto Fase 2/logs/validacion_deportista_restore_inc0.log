@@ -1,0 +1,173 @@
+=== VALIDACION deportista_restore_inc0 — 2026-10-12 19:36:31 CST ===
+ tabla | filas 
+-------+-------
+ pais  |   205
+(1 row)
+
+ pais_id |     nombre     | codigo_iso3 
+---------+----------------+-------------
+       1 | Afghanistan    | 
+       2 | Albania        | 
+       3 | Algeria        | 
+       4 | American Samoa | 
+       5 | Andorra        | 
+(5 rows)
+
+ tabla | filas 
+-------+-------
+ noc   |   236
+(1 row)
+
+ noc_codigo | pais_id | nombre_comite | es_historico |        notas         
+------------+---------+---------------+--------------+----------------------
+ AFG        |       1 | Afghanistan   | f            | 
+ AHO        |      47 | Curacao       | f            | Netherlands Antilles
+ AIN        |         | AIN           | f            | 
+ ALB        |       2 | Albania       | f            | 
+ ALG        |       3 | Algeria       | f            | 
+(5 rows)
+
+ tabla  | filas 
+--------+-------
+ ciudad |    42
+(1 row)
+
+ ciudad_id | pais_id |   nombre    
+-----------+---------+-------------
+         1 |      64 | Albertville
+         2 |     129 | Amsterdam
+         3 |      19 | Antwerpen
+         4 |      70 | Athina
+         5 |     192 | Atlanta
+(5 rows)
+
+  tabla  | filas 
+---------+-------
+ edicion |     1
+(1 row)
+
+ edicion_id | anio | temporada | numero_olimpiada |   nombre    | fecha_inicio | fecha_fin | fue_cancelada | es_intercalada 
+------------+------+-----------+------------------+-------------+--------------+-----------+---------------+----------------
+         50 | 2004 | Verano    |                  | 2004 Verano |              |           | f             | f
+(1 row)
+
+ tabla | filas 
+-------+-------
+ sede  |     1
+(1 row)
+
+ edicion_id | ciudad_id | es_principal 
+------------+-----------+--------------
+         50 |         4 | t
+(1 row)
+
+  tabla  | filas 
+---------+-------
+ deporte |     1
+(1 row)
+
+ deporte_id |  nombre   
+------------+-----------
+          5 | Athletics
+(1 row)
+
+   tabla    | filas 
+------------+-------
+ disciplina |     1
+(1 row)
+
+ disciplina_id | deporte_id |  nombre   
+---------------+------------+-----------
+             7 |          5 | Athletics
+(1 row)
+
+ tabla  | filas 
+--------+-------
+ evento |     1
+(1 row)
+
+ evento_id | disciplina_id |   nombre   | categoria_sexo | es_por_equipos 
+-----------+---------------+------------+----------------+----------------
+       452 |             7 | 200 metres | M              | f
+(1 row)
+
+     tabla      | filas 
+----------------+-------
+ evento_edicion |     1
+(1 row)
+
+ evento_edicion_id | evento_id | edicion_id 
+-------------------+-----------+------------
+              5188 |       452 |         50
+(1 row)
+
+  tabla  | filas 
+---------+-------
+ medalla |     3
+(1 row)
+
+ medalla_id | nombre | orden 
+------------+--------+-------
+          1 | Oro    |     1
+          2 | Plata  |     2
+          3 | Bronce |     3
+(3 rows)
+
+ tabla  | filas 
+--------+-------
+ fuente |     4
+(1 row)
+
+ fuente_id |                 nombre                  |                                            url                                             | fecha_extraccion |                   descripcion                    
+-----------+-----------------------------------------+--------------------------------------------------------------------------------------------+------------------+--------------------------------------------------
+         1 | Olympedia (KeithGalli/Olympics-Dataset) | https://github.com/KeithGalli/Olympics-Dataset                                             |                  | F1 — espina dorsal de atleta, puesto y biografia
+         2 | Kaggle 120 years of Olympic history     | https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results |                  | F2 — ciudad sede, equipos, catalogo NOC-region
+         3 | Kaggle Summer Olympics Medals 1896-2024 | https://www.kaggle.com/datasets/stefanydeoliveira/summer-olympics-medals-1896-2024         |                  | F3 — Tokio 2020 y Paris 2024
+         4 | DataCamp DataLab r-olympics             | https://www.datacamp.com/datalab/datasets/r-olympics                                       |                  | F4 — subconjunto de muestra de F2
+(4 rows)
+
+ tabla  | filas 
+--------+-------
+ atleta |     1
+(1 row)
+
+ atleta_id | nombre_completo | nombre_usado | nombre_normalizado | sexo | fecha_nacimiento | fecha_defuncion | ciudad_nacimiento | region_nacimiento | pais_nacimiento_id | estatura_cm | peso_kg 
+-----------+-----------------+--------------+--------------------+------+------------------+-----------------+-------------------+-------------------+--------------------+-------------+---------
+    105512 | Usain Bolt      |              | usain bolt         | M    | 1986-08-21       |                 | Sherwood Content  | Trelawny          |                 89 |         196 |   95.00
+(1 row)
+
+     tabla     | filas 
+---------------+-------
+ participacion |     1
+(1 row)
+
+ participacion_id | evento_edicion_id | noc_codigo | medalla_id | nombre_equipo | es_por_equipos | puesto | puesto_texto | empatado 
+------------------+-------------------+------------+------------+---------------+----------------+--------+--------------+----------
+           153270 |              5188 | JAM        |            |               | f              |      5 | 5            | f
+(1 row)
+
+        tabla         | filas 
+----------------------+-------
+ participacion_atleta |     1
+(1 row)
+
+ participacion_id | atleta_id | nombre_usado_en_evento 
+------------------+-----------+------------------------
+           153270 |    105512 | 
+(1 row)
+
+     tabla     | filas 
+---------------+-------
+ atleta_fuente |    12
+(1 row)
+
+ atleta_id | fuente_id | id_en_fuente |  nombre_en_fuente  |  metodo_match   | confianza 
+-----------+-----------+--------------+--------------------+-----------------+-----------
+    105512 |         1 | 105512       | Usain Bolt         | espina          |      1.00
+    105512 |         2 | 13029        | Usain St. Leo Bolt | nombre+noc+anio |      0.65
+    105512 |         3 | 24876        | Usain Bolt         | exacto          |      0.90
+    105512 |         3 | 24877        | Usain Bolt         | exacto          |      0.90
+    105512 |         3 | 24878        | Usain Bolt         | exacto          |      0.90
+(5 rows)
+
+=== fin 2026-10-12 19:36:34 CST ===

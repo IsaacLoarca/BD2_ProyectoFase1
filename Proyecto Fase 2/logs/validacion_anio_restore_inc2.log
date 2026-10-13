@@ -1,0 +1,205 @@
+=== VALIDACION anio_restore_inc2 — 2026-10-12 19:39:52 CST ===
+ tabla | filas 
+-------+-------
+ pais  |   205
+(1 row)
+
+ pais_id |     nombre     | codigo_iso3 
+---------+----------------+-------------
+       1 | Afghanistan    | 
+       2 | Albania        | 
+       3 | Algeria        | 
+       4 | American Samoa | 
+       5 | Andorra        | 
+(5 rows)
+
+ tabla | filas 
+-------+-------
+ noc   |   236
+(1 row)
+
+ noc_codigo | pais_id | nombre_comite | es_historico |        notas         
+------------+---------+---------------+--------------+----------------------
+ AFG        |       1 | Afghanistan   | f            | 
+ AHO        |      47 | Curacao       | f            | Netherlands Antilles
+ AIN        |         | AIN           | f            | 
+ ALB        |       2 | Albania       | f            | 
+ ALG        |       3 | Algeria       | f            | 
+(5 rows)
+
+ tabla  | filas 
+--------+-------
+ ciudad |    42
+(1 row)
+
+ ciudad_id | pais_id |   nombre    
+-----------+---------+-------------
+         1 |      64 | Albertville
+         2 |     129 | Amsterdam
+         3 |      19 | Antwerpen
+         4 |      70 | Athina
+         5 |     192 | Atlanta
+(5 rows)
+
+  tabla  | filas 
+---------+-------
+ edicion |     3
+(1 row)
+
+ edicion_id | anio | temporada | numero_olimpiada |   nombre    | fecha_inicio | fecha_fin | fue_cancelada | es_intercalada 
+------------+------+-----------+------------------+-------------+--------------+-----------+---------------+----------------
+         63 | 2024 | Verano    |                  | 2024 Verano |              |           | f             | f
+         61 | 2020 | Verano    |                  | 2020 Verano |              |           | f             | f
+         58 | 2016 | Verano    |                  | 2016 Verano |              |           | f             | f
+(3 rows)
+
+ tabla | filas 
+-------+-------
+ sede  |     3
+(1 row)
+
+ edicion_id | ciudad_id | es_principal 
+------------+-----------+--------------
+         63 |        27 | t
+         61 |        40 | t
+         58 |        28 | t
+(3 rows)
+
+  tabla  | filas 
+---------+-------
+ deporte |    34
+(1 row)
+
+ deporte_id |   nombre   
+------------+------------
+          2 | Aquatics
+          3 | Archery
+          5 | Athletics
+          7 | Badminton
+         10 | Basketball
+(5 rows)
+
+   tabla    | filas 
+------------+-------
+ disciplina |    50
+(1 row)
+
+ disciplina_id | deporte_id |       nombre        
+---------------+------------+---------------------
+             1 |         10 | 3x3 Basketball
+             3 |          3 | Archery
+             5 |         26 | Artistic Gymnastics
+             6 |          2 | Artistic Swimming
+             7 |          5 | Athletics
+(5 rows)
+
+ tabla  | filas 
+--------+-------
+ evento |   626
+(1 row)
+
+ evento_id | disciplina_id | nombre  | categoria_sexo | es_por_equipos 
+-----------+---------------+---------+----------------+----------------
+         1 |            82 | Singles | M              | t
+         2 |            82 | Doubles | M              | t
+         3 |            82 | Doubles | Mixto          | t
+         4 |            80 | Singles | M              | t
+        21 |             9 | Singles | M              | f
+(5 rows)
+
+     tabla      | filas 
+----------------+-------
+ evento_edicion |  1015
+(1 row)
+
+ evento_edicion_id | evento_id | edicion_id 
+-------------------+-----------+------------
+              7773 |      1507 |         63
+              7774 |      1508 |         63
+              7775 |      1509 |         63
+              7776 |      1510 |         63
+              7777 |      1511 |         63
+(5 rows)
+
+  tabla  | filas 
+---------+-------
+ medalla |     3
+(1 row)
+
+ medalla_id | nombre | orden 
+------------+--------+-------
+          1 | Oro    |     1
+          2 | Plata  |     2
+          3 | Bronce |     3
+(3 rows)
+
+ tabla  | filas 
+--------+-------
+ fuente |     4
+(1 row)
+
+ fuente_id |                 nombre                  |                                            url                                             | fecha_extraccion |                   descripcion                    
+-----------+-----------------------------------------+--------------------------------------------------------------------------------------------+------------------+--------------------------------------------------
+         1 | Olympedia (KeithGalli/Olympics-Dataset) | https://github.com/KeithGalli/Olympics-Dataset                                             |                  | F1 — espina dorsal de atleta, puesto y biografia
+         2 | Kaggle 120 years of Olympic history     | https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results |                  | F2 — ciudad sede, equipos, catalogo NOC-region
+         3 | Kaggle Summer Olympics Medals 1896-2024 | https://www.kaggle.com/datasets/stefanydeoliveira/summer-olympics-medals-1896-2024         |                  | F3 — Tokio 2020 y Paris 2024
+         4 | DataCamp DataLab r-olympics             | https://www.datacamp.com/datalab/datasets/r-olympics                                       |                  | F4 — subconjunto de muestra de F2
+(4 rows)
+
+ tabla  | filas 
+--------+-------
+ atleta | 26555
+(1 row)
+
+ atleta_id | nombre_completo | nombre_usado | nombre_normalizado | sexo | fecha_nacimiento | fecha_defuncion |   ciudad_nacimiento   | region_nacimiento | pais_nacimiento_id | estatura_cm | peso_kg 
+-----------+-----------------+--------------+--------------------+------+------------------+-----------------+-----------------------+-------------------+--------------------+-------------+---------
+      2249 | Will Thompson   |              | will thompson      | M    | 1848-03-10       | 1918-08-10      | Calhoun               | Georgia           |                192 |             |        
+      2864 | Rafael Lozano   |              | rafael lozano      | M    | 1970-01-25       |                 | Córdoba               | Córdoba           |                172 |         150 |   48.00
+      3203 | Chen Wei-Chen   |              | chen wei chen      | M    | 1966-05-24       |                 |                       |                   |                    |         178 |   80.00
+      5460 |  Adriana        |              | adriana            | F    | 1971-01-18       |                 | São Bernardo do Campo | São Paulo         |                 27 |         180 |   61.00
+      6313 | Adel Ibrahim    |              | adel ibrahim       | M    | 1951-03-28       |                 |                       |                   |                    |         198 |   97.00
+(5 rows)
+
+     tabla     | filas 
+---------------+-------
+ participacion | 27986
+(1 row)
+
+ participacion_id | evento_edicion_id | noc_codigo | medalla_id | nombre_equipo | es_por_equipos | puesto | puesto_texto | empatado 
+------------------+-------------------+------------+------------+---------------+----------------+--------+--------------+----------
+           202798 |              7773 | ARM        |          2 |               | f              |        |              | f
+           202799 |              7773 | ALG        |            |               | f              |        |              | f
+           202800 |              7773 | IRI        |          1 |               | f              |        |              | f
+           202801 |              7773 | GEO        |            |               | f              |        |              | f
+           202802 |              7773 | GER        |            |               | f              |        |              | f
+(5 rows)
+
+        tabla         | filas 
+----------------------+-------
+ participacion_atleta | 42583
+(1 row)
+
+ participacion_id | atleta_id | nombre_usado_en_evento 
+------------------+-----------+------------------------
+           205562 |    240943 | 
+           204711 |    140978 | 
+           204426 |    237033 | 
+           205660 |    236925 | 
+           206891 |    131204 | 
+(5 rows)
+
+     tabla     | filas 
+---------------+-------
+ atleta_fuente | 54205
+(1 row)
+
+ atleta_id | fuente_id | id_en_fuente | nombre_en_fuente |  metodo_match   | confianza 
+-----------+-----------+--------------+------------------+-----------------+-----------
+      2249 |         1 | 2249         | Will Thompson    | espina          |      1.00
+      2249 |         3 | 1939871      | Will Thompson    | nombre+noc+anio |      0.55
+      2864 |         1 | 2864         | Rafael Lozano    | espina          |      1.00
+      2864 |         3 | 1934782      | Rafael Lozano    | nombre+noc+anio |      0.75
+      3203 |         1 | 3203         | Chen Wei-Chen    | espina          |      1.00
+(5 rows)
+
+=== fin 2026-10-12 19:39:54 CST ===

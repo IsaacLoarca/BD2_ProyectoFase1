@@ -1,12 +1,15 @@
-# Fase 2 — ejecutar desde esta carpeta: docker compose up -d
-# Usa nombre de proyecto, contenedor, volumen y puerto propios para convivir con Fase 1.
+# Fase 2 — respaldo y restauración físicos. Ejecutar desde esta carpeta: docker compose up -d
+# Postgres 17: trae respaldo incremental nativo (pg_basebackup --incremental + pg_combinebackup).
+# Nombre de proyecto, contenedor, volúmenes y puerto propios para convivir con Fase 1.
 name: proyectofase2
 
 services:
   db:
-    image: postgres:16-alpine
+    image: postgres:17-alpine
     container_name: olimpiadas-postgres-f2
     restart: unless-stopped
+    # summarize_wal=on es lo que habilita los respaldos incrementales.
+    command: ["postgres", "-c", "summarize_wal=on", "-c", "wal_level=replica", "-c", "max_wal_senders=5"]
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -14,9 +17,12 @@ services:
     ports:
       - "${POSTGRES_PORT}:5432"
     volumes:
+      # Almacenamiento persistente: datos y respaldos en volúmenes SEPARADOS.
+      # Borrar/restaurar pgdata nunca toca los respaldos.
       - olimpiadas_f2_pgdata:/var/lib/postgresql/data
+      - olimpiadas_f2_backups:/backups
       - ./db/init:/docker-entrypoint-initdb.d:ro
-      - ./staging:/staging:ro
+      - ./cargas:/cargas:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 5s
@@ -25,3 +31,4 @@ services:
 
 volumes:
   olimpiadas_f2_pgdata:
+  olimpiadas_f2_backups:

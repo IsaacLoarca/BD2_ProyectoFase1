@@ -14,6 +14,46 @@ Unificación de cuatro fuentes públicas de datos olímpicos en una sola base de
 
 ---
 
+## Fase 2 — Respaldo y restauración físicos (Postgres 17)
+
+Estrategia: `pg_basebackup` (full) + `pg_basebackup --incremental` (cadena incremental) y
+`pg_combinebackup` para restaurar. Son respaldos **físicos**, no dumps. Requiere `summarize_wal=on`
+(ya está en el `docker-compose.yml`). Los datos y los respaldos viven en **volúmenes distintos**
+(`olimpiadas_f2_pgdata` y `olimpiadas_f2_backups`), ambos persistentes.
+
+Tres tipos de carga, cada uno con 4 tramos (01 = carga inicial, 02..04 = cargas siguientes):
+
+| Tipo | Tramos |
+|------|--------|
+| `anio` | París 2024 → Tokio 2020 → Río 2016 → Londres 2012 (Juegos completos) |
+| `deporte` | 100 m planos femenino en París 2024 → Tokio 2020 → Río 2016 → Londres 2012 |
+| `deportista` | Usain Bolt en Atenas 2004 → Pekín 2008 → Londres 2012 → Río 2016 |
+
+```bash
+cp .env.example .env                              # una vez
+python3 scripts/02-carga/generar_cargas.py        # genera cargas/<tipo>/<NN_...>/*.csv desde staging/
+
+scripts/ejecutar_ciclo.sh anio                    # ciclo completo de un tipo (carga, full, 3 incr., borrar, restaurar)
+
+# o paso a paso (para las capturas):
+scripts/reset_instancia.sh                        # instancia nueva y vacía
+scripts/02-carga/cargar_tramo.sh anio 01          # carga inicial
+scripts/05-validacion/validar.sh anio_carga01     # SELECT COUNT(*) y SELECT * de cada tabla
+scripts/03-backup/backup_full.sh anio             # full  -> /backups/anio/full
+scripts/02-carga/cargar_tramo.sh anio 02
+scripts/03-backup/backup_incremental.sh anio 1    # inc1  -> /backups/anio/inc1
+scripts/05-validacion/fragmentacion.sh anio_carga02   # pgstattuple: tablas e índices
+scripts/04-restore/restaurar.sh anio 0            # elimina la base y restaura solo el full
+scripts/04-restore/restaurar.sh anio 2            # elimina la base y restaura full+inc1+inc2
+```
+
+Los tiempos quedan en `logs/tiempos.csv` (carga, backup, restore en tres medidas: reconstrucción de
+archivos, recuperación hasta aceptar conexiones y total) y la salida de cada paso en `logs/*.log`.
+`restaurar.sh` siempre parte de una base eliminada. Capturas: usar una terminal que muestre la hora
+(los scripts también imprimen `date`).
+
+---
+
 ## Estado de las entregas
 
 | Inciso | Entregable | Fecha | Estado |

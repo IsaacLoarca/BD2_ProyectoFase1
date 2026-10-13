@@ -49,3 +49,7 @@ Thumbs.db
 # --- draw.io ---
 *.drawio.bkp
 *.drawio.dtmp
+
+# --- Fase 2: salidas regenerables ---
+# Tramos de carga: los genera scripts/02-carga/generar_cargas.py desde staging/
+cargas/
