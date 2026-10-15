@@ -347,5 +347,4 @@ INCREMENTAL FROM LSN: 0/3000028
 3. Redactar la **documentación técnica en PDF** (metodología, ER, plan de respaldo, especificaciones
    del servidor, análisis y conclusiones) y el **manual de usuario**.
 4. Opcionales: compresión, cron, cifrado y alertas de integridad.
-5. Confirmar con el catedrático el conteo exacto de respaldos (¿1 full + 3 incrementales por tipo?).
-6. Entregar en UEDI el **17-oct-2026** (todos los integrantes).
+5. Entregar en UEDI el **17-oct-2026** (todos los integrantes).

@@ -56,8 +56,8 @@ Ejecutar desde `Proyecto Fase 2/`. Reemplazar `<tipo>` por el tipo asignado.
 | 13 | `restaurar.sh <tipo> 1`, `2`, `3` (cada una con su `validar.sh`) | Restauración de cada incremental y su validación |
 | 14 | `column -s, -t logs/tiempos.csv` | Tabla final de tiempos |
 
-Son unas 25–30 capturas por tipo. Si el auxiliar acepta `SELECT *` solo de las tablas núcleo
-(`atleta`, `participacion`, `participacion_atleta`, `evento_edicion`, `edicion`), se reduce bastante.
+Son unas 25–30 capturas por tipo. Para el `SELECT *` basta con las tablas que cambian en cada carga
+(`atleta`, `participacion`, `participacion_atleta`, `evento_edicion`, `edicion`); el `COUNT(*)` sí va sobre las 15.
 
 **Atajo:** `scripts/ejecutar_ciclo.sh <tipo>` corre todo de punta a punta (~1.5 min) y deja los logs
 en `logs/`. Sirve para repetir mediciones; las capturas se toman mejor con los pasos sueltos.
@@ -68,12 +68,11 @@ en `logs/`. Sirve para repetir mediciones; las capturas se toman mejor con los p
 
 1. **Preparar el entorno** (cada integrante): clonar el repo, `cd "Proyecto Fase 2"`,
    `cp .env.example .env`, `python3 scripts/02-carga/generar_cargas.py`, `docker compose up -d --wait`.
-2. **Enviar las preguntas al foro** (sección 5) — algunas respuestas cambian el número de capturas.
-3. **Ejecutar y capturar** el tipo asignado (sección 2).
-4. **Redactar** documentación técnica, manual de usuario y análisis (reparto abajo).
-5. **Revisión cruzada**: cada quien revisa el trabajo de otro (comandos del manual funcionan, datos
+2. **Ejecutar y capturar** el tipo asignado (sección 2).
+3. **Redactar** documentación técnica, manual de usuario y análisis (reparto abajo).
+4. **Revisión cruzada**: cada quien revisa el trabajo de otro (comandos del manual funcionan, datos
    del análisis coinciden con `logs/tiempos.csv`).
-6. **Entrega en UEDI**: *todos* los integrantes suben los archivos (sin esto, nota 0).
+5. **Entrega en UEDI**: *todos* los integrantes suben los archivos (sin esto, nota 0).
 
 ---
 
@@ -95,37 +94,9 @@ repositorio ordenado ☐ Capturas con fecha y hora ☐ Logs de ejecución ☐ Su
 
 ---
 
-## 5. Preguntas para el foro del auxiliar
+## 5. Qué sigue
 
-1. ¿Son **1 full y 3 incrementales por tipo de carga** (3 full y 9 incrementales en total), o 3 full y
-   3 incrementales en total, como dice la rúbrica ("3 respaldos completos y 3 incrementales")?
-2. ¿"Carga inicial" más "hasta 3 cargas siguientes" suma 4 cargas por tipo? Los ejemplos del enunciado
-   traen solo 3 ediciones por tipo.
-3. ¿Postgres 17 con `pg_basebackup --incremental` cuenta como respaldo **físico incremental**? ¿Aceptan
-   el incremental encadenado (cada uno contra el anterior) o prefieren que cada uno sea contra el full
-   (diferencial)?
-4. ¿Es válido restaurar combinando la cadena con `pg_combinebackup`, o debe verse cada incremental
-   aplicado por separado?
-5. En la restauración, ¿el tiempo a medir es solo el de reconstruir los archivos o hasta que la base
-   acepta conexiones? Nosotros registramos ambos y el total.
-6. ¿El `SELECT *` debe mostrar **todas** las filas o basta con `LIMIT` más el `COUNT(*)`? ¿Hace falta
-   de las 15 tablas o solo de las principales?
-7. Para la fragmentación en Postgres usamos `pgstattuple` y `pgstatindex`. ¿Les parece suficiente?
-8. ¿Se puede usar Docker (compose) y cargar desde los CSV de la base de la Fase 1, o debe cargarse
-   desde Excel?
-9. Los datos son pequeños (de ~100 a ~37 000 filas por tipo) y el tiempo está dominado por la
-   recuperación fija de Postgres. ¿Les basta para el análisis, o esperan un volumen mayor?
-10. ¿Se evalúan o dan puntos extra por cifrado, compresión, cron y alertas (alcance opcional)?
-11. ¿Qué formato de entrega piden: PDF + repositorio + `.zip` de capturas? ¿Cada integrante sube lo
-    mismo a UEDI?
-12. ¿Las capturas van dentro del PDF o en una carpeta aparte?
-
----
-
-## 6. Qué sigue
-
-1. **Hoy:** enviar las preguntas al foro y hacer commit/push de gráficos, scripts y documentación
-   (aún sin commitear).
+1. **Hoy:** hacer commit/push de gráficos, scripts y documentación.
 2. **Hoy–mañana:** cada persona ejecuta y captura su tipo de carga.
 3. **Mañana:** Persona 1 y 2 redactan el PDF y el manual a partir de `EXPOSICION-FASE2.md`.
 4. **Antes del 17-oct:** Persona 3 cierra el análisis comparativo; revisión cruzada; entrega de todos
