@@ -47,6 +47,9 @@ scripts/04-restore/restaurar.sh anio 0            # elimina la base y restaura s
 scripts/04-restore/restaurar.sh anio 2            # elimina la base y restaura full+inc1+inc2
 ```
 
+Manual completo: [`docs/manual-usuario.md`](docs/manual-usuario.md). Para tomar las capturas del
+enunciado paso a paso: `scripts/guia_capturas.sh <tipo>`.
+
 Los tiempos quedan en `logs/tiempos.csv` (carga, backup, restore en tres medidas: reconstrucción de
 archivos, recuperación hasta aceptar conexiones y total) y la salida de cada paso en `logs/*.log`.
 `restaurar.sh` siempre parte de una base eliminada. Capturas: usar una terminal que muestre la hora
