@@ -1,0 +1,6 @@
+[2026-10-14 20:03:35] ELIMINAR BASE: se destruye el volumen de datos proyectofase2_olimpiadas_f2_pgdata
+ Container olimpiadas-postgres-f2 Stopping 
+ Container olimpiadas-postgres-f2 Stopped 
+ Container olimpiadas-postgres-f2 Removing 
+ Container olimpiadas-postgres-f2 Removed 
+[2026-10-14 20:03:36] Base eliminada (respaldos intactos)

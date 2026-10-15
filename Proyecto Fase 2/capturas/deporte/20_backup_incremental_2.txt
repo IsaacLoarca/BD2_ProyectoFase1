@@ -1,0 +1,12 @@
+[2026-10-14 19:57:22] BACKUP INCREMENTAL deporte #2 -> /backups/deporte/inc2 (base: /backups/deporte/inc1)
+pg_basebackup: initiating base backup, waiting for checkpoint to complete
+pg_basebackup: checkpoint completed
+pg_basebackup: write-ahead log start point: 0/6000028 on timeline 1
+pg_basebackup: starting background WAL receiver
+pg_basebackup: created temporary replication slot "pg_basebackup_2704"
+pg_basebackup: write-ahead log end point: 0/6000120
+pg_basebackup: waiting for background process to finish streaming ...
+pg_basebackup: syncing data to disk ...
+pg_basebackup: renaming backup_manifest.tmp to backup_manifest
+pg_basebackup: base backup completed
+[2026-10-14 19:57:24] BACKUP INCREMENTAL deporte #2: 2.007s, 24964 KB

@@ -1,0 +1,20 @@
+[2026-10-14 20:07:48] ELIMINAR BASE: se destruye el volumen de datos proyectofase2_olimpiadas_f2_pgdata
+ Container olimpiadas-postgres-f2 Stopping 
+ Container olimpiadas-postgres-f2 Stopped 
+ Container olimpiadas-postgres-f2 Removing 
+ Container olimpiadas-postgres-f2 Removed 
+[2026-10-14 20:07:49] Base eliminada (respaldos intactos)
+[2026-10-14 20:07:49] RESTORE deporte [full+inc1+inc2]: inicio
+ Volume proyectofase2_olimpiadas_f2_pgdata Creating 
+ Volume proyectofase2_olimpiadas_f2_pgdata Creating 
+ Volume proyectofase2_olimpiadas_f2_pgdata Created 
+ Volume proyectofase2_olimpiadas_f2_pgdata Created 
+ Container proyectofase2-db-run-b7307df962b3 Creating 
+ Container proyectofase2-db-run-b7307df962b3 Created 
+ Container olimpiadas-postgres-f2 Creating 
+ Container olimpiadas-postgres-f2 Created 
+ Container olimpiadas-postgres-f2 Starting 
+ Container olimpiadas-postgres-f2 Started 
+ Container olimpiadas-postgres-f2 Waiting 
+ Container olimpiadas-postgres-f2 Healthy 
+[2026-10-14 20:07:57] RESTORE deporte [full+inc1+inc2]: archivos 2.375s + recuperación 5.799s = total 8.174s

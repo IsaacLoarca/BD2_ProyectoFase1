@@ -1,0 +1,7 @@
+total 0
+drwxr-xr-x    1 postgres postgres        32 Oct 15 02:00 .
+drwxr-xr-x    1 root     root            14 Oct 15 01:46 ..
+drwx------    1 postgres postgres       508 Oct 15 01:46 full
+drwx------    1 postgres postgres       508 Oct 15 01:54 inc1
+drwx------    1 postgres postgres       508 Oct 15 01:57 inc2
+drwx------    1 postgres postgres       508 Oct 15 02:00 inc3

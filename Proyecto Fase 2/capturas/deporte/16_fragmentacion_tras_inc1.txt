@@ -1,0 +1,55 @@
+=== FRAGMENTACION cap_deporte_carga02_inc1 — 2026-10-14 19:54:37 CST ===
+        tabla         |   tamano   | tuplas_vivas | tuplas_muertas | dead_pct | free_pct 
+----------------------+------------+--------------+----------------+----------+----------
+ atleta_fuente        | 24 kB      |          288 |              0 |     0.00 |    13.69
+ atleta               | 16 kB      |          150 |              0 |     0.00 |    18.21
+ participacion        | 16 kB      |          157 |              0 |     0.00 |    42.02
+ noc                  | 16 kB      |          236 |              0 |     0.00 |    26.51
+ pais                 | 16 kB      |          205 |              0 |     0.00 |    43.14
+ disciplina           | 8192 bytes |            1 |              0 |     0.00 |    99.02
+ evento               | 8192 bytes |            2 |              0 |     0.00 |    98.49
+ evento_edicion       | 8192 bytes |            2 |              0 |     0.00 |    98.58
+ medalla              | 8192 bytes |            3 |              0 |     0.00 |    98.14
+ participacion_atleta | 8192 bytes |          159 |              0 |     0.00 |    14.26
+ fuente               | 8192 bytes |            4 |              0 |     0.00 |    90.87
+ ciudad               | 8192 bytes |           42 |              0 |     0.00 |    74.56
+ edicion              | 8192 bytes |            2 |              0 |     0.00 |    98.00
+ sede                 | 8192 bytes |            2 |              0 |     0.00 |    98.58
+ deporte              | 8192 bytes |            1 |              0 |     0.00 |    99.12
+(15 rows)
+
+                     indice                     | tamano | densidad_hoja_pct | fragmentacion_hoja_pct 
+------------------------------------------------+--------+-------------------+------------------------
+ pais_pkey                                      | 16 kB  |             50.34 |                   0.00
+ pais_nombre_key                                | 16 kB  |             60.84 |                   0.00
+ noc_pkey                                       | 16 kB  |             57.95 |                   0.00
+ ciudad_pkey                                    | 16 kB  |             10.35 |                   0.00
+ ciudad_pais_id_nombre_key                      | 16 kB  |             15.16 |                   0.00
+ edicion_pkey                                   | 16 kB  |              0.54 |                   0.00
+ edicion_anio_temporada_key                     | 16 kB  |              0.74 |                   0.00
+ sede_pkey                                      | 16 kB  |              0.54 |                   0.00
+ deporte_pkey                                   | 16 kB  |              0.29 |                   0.00
+ deporte_nombre_key                             | 16 kB  |              0.39 |                   0.00
+ disciplina_pkey                                | 16 kB  |              0.29 |                   0.00
+ disciplina_deporte_id_nombre_key               | 16 kB  |              0.39 |                   0.00
+ evento_edicion_pkey                            | 16 kB  |              0.54 |                   0.00
+ evento_pkey                                    | 16 kB  |              0.54 |                   0.00
+ evento_disciplina_id_nombre_categoria_sexo_key | 16 kB  |              0.83 |                   0.00
+ evento_edicion_evento_id_edicion_id_key        | 16 kB  |              0.54 |                   0.00
+ medalla_pkey                                   | 16 kB  |              0.79 |                   0.00
+ atleta_pkey                                    | 16 kB  |             36.85 |                   0.00
+ participacion_pkey                             | 16 kB  |             38.57 |                   0.00
+ participacion_atleta_pkey                      | 16 kB  |             54.66 |                   0.00
+ fuente_pkey                                    | 16 kB  |              1.03 |                   0.00
+ atleta_fuente_pkey                             | 16 kB  |             98.97 |                   0.00
+ idx_atleta_nombre_norm                         | 16 kB  |             57.26 |                   0.00
+ idx_pa_atleta                                  | 16 kB  |             39.06 |                   0.00
+ idx_part_noc                                   | 16 kB  |             38.57 |                   0.00
+ idx_part_medalla                               | 16 kB  |              1.52 |                   0.00
+ idx_part_evento_edicion                        | 16 kB  |             38.57 |                   0.00
+ idx_ee_edicion                                 | 16 kB  |              0.54 |                   0.00
+ idx_sede_ciudad                                | 16 kB  |              0.54 |                   0.00
+ idx_af_fuente_id                               | 16 kB  |             91.02 |                   0.00
+(30 rows)
+
+=== fin 2026-10-14 19:54:37 CST ===

@@ -1,0 +1,9 @@
+NAME                     IMAGE                COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+olimpiadas-postgres-f2   postgres:17-alpine   "docker-entrypoint.s…"   db        29 minutes ago   Up 29 minutes (healthy)   0.0.0.0:5435->5432/tcp, [::]:5435->5432/tcp
+
+local     41d80a3549839f7d4bb88ad137c0243f2e8917ea913f2e2ca3e5d23121357a20
+local     770f0756ab26cc8a84e85f1ed5b45c693764df79714ecf9860f2c36ca0bc5ce1
+local     45027b2a92bd710e9c94110ca17ffd1024fc3ed1c61df2b626e3418a6ab1510b
+local     c11a496d55b7c2dff434b9a26bf2a9e518ce5c803c66fbbb79d1a0aaa32a8221
+local     proyectofase2_olimpiadas_f2_backups
+local     proyectofase2_olimpiadas_f2_pgdata

@@ -1,0 +1,28 @@
+[2026-10-14 19:54:51] CARGA deporte/03_rio_2016: inicio
+  pais: COPY 0
+  noc: COPY 0
+  ciudad: COPY 0
+  edicion: COPY 1
+  sede: COPY 1
+  deporte: COPY 0
+  disciplina: COPY 0
+  evento: COPY 0
+  evento_edicion: COPY 1
+  atleta: COPY 56
+  participacion: COPY 75
+  participacion_atleta: COPY 80
+  atleta_fuente: COPY 219
+ setval 
+--------
+    205
+     42
+     63
+      5
+      7
+   1515
+   7781
+ 243989
+ 203061
+(9 rows)
+
+[2026-10-14 19:54:52] CARGA deporte/03_rio_2016: fin en 1.251s

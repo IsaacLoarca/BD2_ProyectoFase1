@@ -1,0 +1,10 @@
+ summarize_wal 
+---------------
+ on
+(1 row)
+
+                                         version                                          
+------------------------------------------------------------------------------------------
+ PostgreSQL 17.10 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+(1 row)
+

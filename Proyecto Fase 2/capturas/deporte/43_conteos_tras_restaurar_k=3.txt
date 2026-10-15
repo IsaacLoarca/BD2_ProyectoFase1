@@ -1,0 +1,77 @@
+=== VALIDACION cap_deporte_restore_inc3_conteos — 2026-10-14 20:10:01 CST ===
+ tabla | filas 
+-------+-------
+ pais  |   205
+(1 row)
+
+ tabla | filas 
+-------+-------
+ noc   |   236
+(1 row)
+
+ tabla  | filas 
+--------+-------
+ ciudad |    42
+(1 row)
+
+  tabla  | filas 
+---------+-------
+ edicion |     4
+(1 row)
+
+ tabla | filas 
+-------+-------
+ sede  |     4
+(1 row)
+
+  tabla  | filas 
+---------+-------
+ deporte |     1
+(1 row)
+
+   tabla    | filas 
+------------+-------
+ disciplina |     1
+(1 row)
+
+ tabla  | filas 
+--------+-------
+ evento |     2
+(1 row)
+
+     tabla      | filas 
+----------------+-------
+ evento_edicion |     4
+(1 row)
+
+  tabla  | filas 
+---------+-------
+ medalla |     3
+(1 row)
+
+ tabla  | filas 
+--------+-------
+ fuente |     4
+(1 row)
+
+ tabla  | filas 
+--------+-------
+ atleta |   261
+(1 row)
+
+     tabla     | filas 
+---------------+-------
+ participacion |   310
+(1 row)
+
+        tabla         | filas 
+----------------------+-------
+ participacion_atleta |   318
+(1 row)
+
+     tabla     | filas 
+---------------+-------
+ atleta_fuente |   680
+(1 row)
+
+=== fin 2026-10-14 20:10:02 CST ===

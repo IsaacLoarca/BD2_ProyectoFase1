@@ -1,0 +1,28 @@
+[2026-10-14 19:44:09] CARGA deporte/01_paris_2024: inicio
+  pais: COPY 205
+  noc: COPY 236
+  ciudad: COPY 42
+  edicion: COPY 1
+  sede: COPY 1
+  deporte: COPY 1
+  disciplina: COPY 1
+  evento: COPY 1
+  evento_edicion: COPY 1
+  atleta: COPY 91
+  participacion: COPY 91
+  participacion_atleta: COPY 91
+  atleta_fuente: COPY 145
+ setval 
+--------
+    205
+     42
+     63
+      5
+      7
+   1515
+   7781
+ 243989
+ 203061
+(9 rows)
+
+[2026-10-14 19:44:10] CARGA deporte/01_paris_2024: fin en 1.263s

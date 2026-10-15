@@ -1,0 +1,28 @@
+[2026-10-14 19:59:25] CARGA deporte/04_londres_2012: inicio
+  pais: COPY 0
+  noc: COPY 0
+  ciudad: COPY 0
+  edicion: COPY 1
+  sede: COPY 1
+  deporte: COPY 0
+  disciplina: COPY 0
+  evento: COPY 0
+  evento_edicion: COPY 1
+  atleta: COPY 55
+  participacion: COPY 78
+  participacion_atleta: COPY 79
+  atleta_fuente: COPY 173
+ setval 
+--------
+    205
+     42
+     63
+      5
+      7
+   1515
+   7781
+ 243989
+ 203061
+(9 rows)
+
+[2026-10-14 19:59:26] CARGA deporte/04_londres_2012: fin en 1.263s

@@ -1,0 +1,2 @@
+service "db" is not running
+(el comando terminó con error: esperado en el paso de 'base eliminada')

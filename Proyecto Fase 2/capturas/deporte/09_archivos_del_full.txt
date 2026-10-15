@@ -1,0 +1,27 @@
+total 244
+drwx------    1 postgres postgres       508 Oct 15 01:46 .
+drwxr-xr-x    1 postgres postgres         8 Oct 15 01:46 ..
+-rw-------    1 postgres postgres         3 Oct 15 01:46 PG_VERSION
+-rw-------    1 postgres postgres       212 Oct 15 01:46 backup_label
+-rw-------    1 postgres postgres    190404 Oct 15 01:46 backup_manifest
+drwx------    1 postgres postgres        16 Oct 15 01:46 base
+drwx------    1 postgres postgres       600 Oct 15 01:46 global
+drwx------    1 postgres postgres         0 Oct 15 01:46 pg_commit_ts
+drwx------    1 postgres postgres         0 Oct 15 01:46 pg_dynshmem
+-rw-------    1 postgres postgres      5743 Oct 15 01:46 pg_hba.conf
+-rw-------    1 postgres postgres      2640 Oct 15 01:46 pg_ident.conf
+drwx------    1 postgres postgres        76 Oct 15 01:46 pg_logical
+drwx------    1 postgres postgres        28 Oct 15 01:46 pg_multixact
+drwx------    1 postgres postgres         0 Oct 15 01:46 pg_notify
+drwx------    1 postgres postgres         0 Oct 15 01:46 pg_replslot
+drwx------    1 postgres postgres         0 Oct 15 01:46 pg_serial
+drwx------    1 postgres postgres         0 Oct 15 01:46 pg_snapshots
+drwx------    1 postgres postgres         0 Oct 15 01:46 pg_stat
+drwx------    1 postgres postgres         0 Oct 15 01:46 pg_stat_tmp
+drwx------    1 postgres postgres         0 Oct 15 01:46 pg_subtrans
+drwx------    1 postgres postgres         0 Oct 15 01:46 pg_tblspc
+drwx------    1 postgres postgres         0 Oct 15 01:46 pg_twophase
+drwx------    1 postgres postgres        94 Oct 15 01:46 pg_wal
+drwx------    1 postgres postgres         8 Oct 15 01:46 pg_xact
+-rw-------    1 postgres postgres        88 Oct 15 01:46 postgresql.auto.conf
+-rw-------    1 postgres postgres     30844 Oct 15 01:46 postgresql.conf

@@ -1,0 +1,22 @@
+[2026-10-14 19:42:22] Reiniciando instancia: baja el contenedor y elimina el volumen de datos
+ Container olimpiadas-postgres-f2 Stopping 
+ Container olimpiadas-postgres-f2 Stopped 
+ Container olimpiadas-postgres-f2 Removing 
+ Container olimpiadas-postgres-f2 Removed 
+ Network proyectofase2_default Removing 
+ Network proyectofase2_default Removed 
+ Network proyectofase2_default Creating 
+ Network proyectofase2_default Creating 
+ Volume proyectofase2_olimpiadas_f2_pgdata Creating 
+ Volume proyectofase2_olimpiadas_f2_pgdata Creating 
+ Volume proyectofase2_olimpiadas_f2_pgdata Created 
+ Volume proyectofase2_olimpiadas_f2_pgdata Created 
+ Network proyectofase2_default Created 
+ Network proyectofase2_default Created 
+ Container olimpiadas-postgres-f2 Creating 
+ Container olimpiadas-postgres-f2 Created 
+ Container olimpiadas-postgres-f2 Starting 
+ Container olimpiadas-postgres-f2 Started 
+ Container olimpiadas-postgres-f2 Waiting 
+ Container olimpiadas-postgres-f2 Healthy 
+[2026-10-14 19:42:29] Instancia nueva lista (puerto 5435, base olimpiadas)

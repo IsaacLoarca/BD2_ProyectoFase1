@@ -5,19 +5,24 @@
 # como respaldo de texto.
 # Uso: scripts/guia_capturas.sh <anio|deporte|deportista>
 #      SIN_PAUSA=1 scripts/guia_capturas.sh deporte    # sin esperar (para probar que todo corre)
+#      DESDE=10 scripts/guia_capturas.sh deporte       # retoma en el paso 10 (omite los anteriores,
+#                                                       # conserva la base y los respaldos actuales)
 source "$(dirname "$0")/lib.sh"
 tipo="${1:?tipo: anio|deporte|deportista}"
 S="$RAIZ/scripts"
 carpeta="capturas/$tipo"; mkdir -p "$carpeta"
 [ -d "cargas/$tipo" ] || python3 -I "$S/02-carga/generar_cargas.py" >/dev/null
-docker compose up -d --wait >/dev/null; docker compose exec -T -u root db rm -rf "/backups/$tipo"
+docker compose up -d --wait >/dev/null
+# Solo una corrida completa limpia los respaldos del tipo; al retomar con DESDE se conservan
+[ "${DESDE:-1}" -le 1 ] && docker compose exec -T -u root db rm -rf "/backups/$tipo"
 
 n=0
 # paso "<titulo corto>" <comando...>  : encabezado + ejecución + pausa para la captura
 paso() {
   local titulo="$1"; shift; n=$((n + 1))
+  [ "$n" -lt "${DESDE:-1}" ] && return 0     # paso ya realizado antes: se omite
   local archivo; archivo="$carpeta/$(printf '%02d' "$n")_${titulo// /_}.txt"
-  clear 2>/dev/null || true
+  printf '\n\n'
   echo "################ PASO $n — $titulo ################"
   echo "Fecha/hora del sistema: $(date '+%F %T %Z')"
   echo "\$ $*"; echo

@@ -1,0 +1,28 @@
+[2026-10-14 19:51:53] CARGA deporte/02_tokio_2020: inicio
+  pais: COPY 0
+  noc: COPY 0
+  ciudad: COPY 0
+  edicion: COPY 1
+  sede: COPY 1
+  deporte: COPY 0
+  disciplina: COPY 0
+  evento: COPY 1
+  evento_edicion: COPY 1
+  atleta: COPY 59
+  participacion: COPY 66
+  participacion_atleta: COPY 68
+  atleta_fuente: COPY 143
+ setval 
+--------
+    205
+     42
+     63
+      5
+      7
+   1515
+   7781
+ 243989
+ 203061
+(9 rows)
+
+[2026-10-14 19:51:54] CARGA deporte/02_tokio_2020: fin en 1.250s

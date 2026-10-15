@@ -1,0 +1,77 @@
+=== VALIDACION cap_deporte_carga01_conteos — 2026-10-14 19:44:24 CST ===
+ tabla | filas 
+-------+-------
+ pais  |   205
+(1 row)
+
+ tabla | filas 
+-------+-------
+ noc   |   236
+(1 row)
+
+ tabla  | filas 
+--------+-------
+ ciudad |    42
+(1 row)
+
+  tabla  | filas 
+---------+-------
+ edicion |     1
+(1 row)
+
+ tabla | filas 
+-------+-------
+ sede  |     1
+(1 row)
+
+  tabla  | filas 
+---------+-------
+ deporte |     1
+(1 row)
+
+   tabla    | filas 
+------------+-------
+ disciplina |     1
+(1 row)
+
+ tabla  | filas 
+--------+-------
+ evento |     1
+(1 row)
+
+     tabla      | filas 
+----------------+-------
+ evento_edicion |     1
+(1 row)
+
+  tabla  | filas 
+---------+-------
+ medalla |     3
+(1 row)
+
+ tabla  | filas 
+--------+-------
+ fuente |     4
+(1 row)
+
+ tabla  | filas 
+--------+-------
+ atleta |    91
+(1 row)
+
+     tabla     | filas 
+---------------+-------
+ participacion |    91
+(1 row)
+
+        tabla         | filas 
+----------------------+-------
+ participacion_atleta |    91
+(1 row)
+
+     tabla     | filas 
+---------------+-------
+ atleta_fuente |   145
+(1 row)
+
+=== fin 2026-10-14 19:44:26 CST ===

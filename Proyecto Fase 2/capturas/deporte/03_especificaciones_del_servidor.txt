@@ -1,0 +1,8 @@
+CPU(s):                                  12
+Model name:                              AMD Ryzen 5 5600G with Radeon Graphics
+Thread(s) per core:                      2
+CPU(s) scaling MHz:                      70%
+               total        used        free      shared  buff/cache   available
+Mem:            14Gi       9,9Gi       477Mi       1,4Gi       6,3Gi       5,0Gi
+Swap:          8,0Gi       233Mi       7,8Gi
+Docker 29.8.1

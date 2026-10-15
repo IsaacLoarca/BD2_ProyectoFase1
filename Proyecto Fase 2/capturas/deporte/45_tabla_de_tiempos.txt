@@ -1,0 +1,21 @@
+fecha_hora           tipo_carga  operacion             detalle              segundos  tamano_kb
+2026-10-14 19:44:10  deporte     carga                 01_paris_2024        1.263     
+2026-10-14 19:46:42  deporte     backup                full                 2.077     47996
+2026-10-14 19:51:54  deporte     carga                 02_tokio_2020        1.250     
+2026-10-14 19:54:10  deporte     backup                inc1                 2.006     24860
+2026-10-14 19:54:52  deporte     carga                 03_rio_2016          1.251     
+2026-10-14 19:57:24  deporte     backup                inc2                 2.007     24964
+2026-10-14 19:59:26  deporte     carga                 04_londres_2012      1.263     
+2026-10-14 20:00:49  deporte     backup                inc3                 2.052     24900
+2026-10-14 20:04:04  deporte     restore_archivos      full                 0.719     
+2026-10-14 20:04:04  deporte     restore_recuperacion  full                 5.798     
+2026-10-14 20:04:04  deporte     restore_total         full                 6.517     
+2026-10-14 20:05:59  deporte     restore_archivos      full+inc1            3.258     
+2026-10-14 20:05:59  deporte     restore_recuperacion  full+inc1            5.811     
+2026-10-14 20:05:59  deporte     restore_total         full+inc1            9.069     
+2026-10-14 20:07:57  deporte     restore_archivos      full+inc1+inc2       2.375     
+2026-10-14 20:07:57  deporte     restore_recuperacion  full+inc1+inc2       5.799     
+2026-10-14 20:07:57  deporte     restore_total         full+inc1+inc2       8.174     
+2026-10-14 20:09:39  deporte     restore_archivos      full+inc1+inc2+inc3  2.384     
+2026-10-14 20:09:39  deporte     restore_recuperacion  full+inc1+inc2+inc3  5.825     
+2026-10-14 20:09:39  deporte     restore_total         full+inc1+inc2+inc3  8.209     
