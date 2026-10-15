@@ -1,4 +1,9 @@
 # Manual de usuario — Respaldo y restauración físicos de la BD Olimpiadas
+### Integrantes
+
+- Juan José Rodas Mansilla
+- Integrante 2
+- Integrante 3
 
 **Proyecto 2 · Sistemas de Bases de Datos 2 · USAC · 2do. semestre 2026**
 
